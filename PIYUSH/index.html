@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Autonom</title>
+		<!-- Latest compiled and minified CSS -->
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+		<!-- jQuery library -->
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+		<!-- Latest compiled JavaScript -->
+		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+		<!-- Angular dependency -->
+		<script data-require="angular.js@1.3.x" src="https://code.angularjs.org/1.3.20/angular.js" data-semver="1.3.20"></script>
+		<!-- Application de[pendencies -->
+		<script src="app.js"></script>
+		<script src="services.js"></script>
+		<style>
+			.align-center{
+				text-align:center;
+			}
+			#phyDealTable {
+  height:150px;
+  overflow:auto;  
+  margin-top:20px;
+}
+#BookoutTable
+ {
+  height:150px;
+  overflow:auto;  
+  margin-top:20px;
+}
+#NominationTable
+ {
+  height:150px;
+  overflow:auto;  
+  margin-top:20px;
+}
+		</style>
+	</head>
+	<body ng-app="autonom">
+		
+		<div class="container-fluid" ng-controller="MainCtrl">
+			<div class="jumbotron">
+				<h1>Welcome to Autonom.</h1> 
+			</div>
+			<!-- Section One -->
+		    <div class="row">
+				<div class="col-xs-6">
+					<input type="text" class="form-control" placeholder="Service provider" ng-model="serviceProviderObj.serviceProvider">
+				</div>
+				<div class="col-xs-6">
+					<input type="date" class="form-control" placeholder="flow Date" ng-model="serviceProviderObj.flowDate">
+				</div>
+			</div>
+			<br>
+			<div class="row align-center">
+				<div class="col-xs-12">
+					<input type="button" class="btn btn-primary" value="Submit" ng-click="getDealsbyServiceProvider()">
+				</div>
+			</div>
+			<!-- End of Section One -->
+			<hr>
+			<!-- Section Two -->
+			<div class="row">
+				<div class="col-xs-12">
+					<h3>Physical deal information</h3>
+				</div>
+			</div>
+			<div class="row" >
+				<div class="col-xs-12" id="phyDealTable">
+					<table class="table table-striped">
+						<thead>
+						  <tr>
+							<th>Select</th>
+							<th>Buy or Sell</th>
+							<th>DailyVolume</th>
+							<th>DealID</th>
+							<th>InstrumentType</th>
+							<th>ExtCounterParty</th>
+							<th>OuttCounterParty</th>
+							<th>StartDate</th>
+							<th>EndDate</th>
+							<th>Action</th>
+						</tr>
+						</thead>
+						<tbody>
+							<tr ng-repeat="row in ngSchedule">
+								<td>
+									<input type="checkbox" ng-model="row['isChecked']">
+								</td>
+								<td>{{row.BuyorSell}}</td>
+								<td>{{row.DailyVolume}}</td>
+								<td>{{row.DealID}}</td>
+								<td>{{row.InstrumentType}}</td>
+								<td>{{row.ExtCounterParty}}</td>
+								<td>{{row.OuttCounterParty}}</td>
+								<td>{{row.StartDate}}</td>
+								<td>{{row.EndDate}}</td>
+								<td>
+									<input type="button" value="contract" class="btn btn-xs btn-info"
+								</td>
+							</tr>
+						</tbody>
+					  </table>
+				</div>
+			</div>
+			<div class="row align-center">
+				<div class="col-xs-12">
+					<input type="button" class="btn btn-primary" value="Add" ng-click="addNGSchedule()">
+				</div>
+			</div>
+			<!-- End of Section Two -->
+			<hr>
+			<!-- Section Three -->
+			<div class="row">
+				<div class="col-xs-12">
+					<h3>Bookout information</h3>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-xs-12" id="BookoutTable">
+					<table class="table table-striped">
+						<thead>
+						  <tr>
+							<th>Select</th>
+							<th>ExtCounterParty</th>
+							<th>OuttCounterParty</th>
+							<th>AggregatedVolBuy</th>
+							<th>AggregatedVolSell</th>
+						</tr>
+						</thead>
+						<tbody>
+							<tr ng-repeat="row in aggregatedData">
+								<td>
+									<input type="checkbox" ng-model="row['isChecked']">
+								</td>
+								<td>{{row.ExtCounterParty}}</td>
+								<td>{{row.OuttCounterParty}}</td>
+								<td>{{row.AggregatedVolBuy}}</td>
+								<td>{{row.AggregatedVolSell}}</td>
+							</tr>
+						</tbody>
+					  </table>
+				</div>
+			</div>
+			<div class="row align-center">
+				<div class="col-xs-12">
+					<input type="button" class="btn btn-warning" value="Partial Bookout">
+					<input type="button" class="btn btn-primary" value="Full Bookout" ng-click="fullBook()">
+				</div>
+			</div>
+			<!-- End of Section Three -->
+			<hr>
+			<!-- Section Four -->
+			<div class="row" >
+				<div class="col-xs-12">
+					<h3>Nomination Information</h3>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-xs-12" id ="NominationTable">
+					<table class="table table-striped">
+						<thead>
+						  <tr>
+							<th>Buy or Sell</th>
+							<th>DailyVolume</th>
+							<th>DealID</th>
+							<th>InstrumentType</th>
+							<th>ExtCounterParty</th>
+							<th>OuttCounterParty</th>
+							<th>StartDate</th>
+							<th>EndDate</th>
+						</tr>
+						</thead>
+						<tbody>
+							<tr ng-repeat="row in nomination track by $index">
+								<td>{{row.BuyorSell}}</td>
+								<td>{{row.DailyVolume}}</td>
+								<td>{{row.DealID}}</td>
+								<td>{{row.InstrumentType}}</td>
+								<td>{{row.ExtCounterParty}}</td>
+								<td>{{row.OuttCounterParty}}</td>
+								<td>{{row.StartDate}}</td>
+								<td>{{row.EndDate}}</td>
+							</tr>
+						</tbody>
+					  </table>
+				</div>
+			</div>
+			<div class="row align-center">
+				<div class="col-xs-12">
+					<input type="button" class="btn btn-primary" value="Nominate">
+				</div>
+			</div>
+			<!-- End of Section Four -->
+			<br><br><br><br><br><br><br><br><br>
+		</div>
+	</body>
+</html>
