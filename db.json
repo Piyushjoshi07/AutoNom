@@ -1,0 +1,183 @@
+{
+					"UIFetchData": [{
+
+						"NGSchedule": [{
+								"BuyorSell": "BUY",
+								"DailyVolume": 1000,
+								"DealID": 1111,
+								"InstrumentType": "PHYS",
+								"ExtCounterParty": "DIRECTENERGY-1",
+								"OuttCounterParty": "WFLLC",
+								"StartDate": "8/1/2018",
+								"EndDate": "10/1/2018",
+								"contractList" : [
+									{ 
+									  "id" : "1",
+									  "contractName" : "First"									  
+									},
+									{ 
+									  "id" : "2",
+									  "contractName" : "Second"									  
+									},
+									{ 
+									  "id" : "3",
+									  "contractName" : "Third"									  
+									},
+									{ 
+									  "id" : "4",
+									  "contractName" : "Four"									  
+									},
+									{ 
+									  "id" : "5",
+									  "contractName" : "Five"									  
+									}
+								]
+							},
+							{
+								"BuyorSell": "SELL",
+								"DailyVolume": 1000,
+								"DealID": 2222,
+								"InstrumentType": "PHYS",
+								"ExtCounterParty": "DIRECTENERGY-1",
+								"OuttCounterParty": "WFLLC",
+								"StartDate": "8/1/2018",
+								"EndDate": "10/1/2018",
+								"contractList" : [
+									{ 
+									  "id" : "1",
+									  "contractName" : "First"									  
+									},
+									{ 
+									  "id" : "2",
+									  "contractName" : "Second"									  
+									},
+									{ 
+									  "id" : "3",
+									  "contractName" : "Third"									  
+									},
+									{ 
+									  "id" : "4",
+									  "contractName" : "Four"									  
+									},
+									{ 
+									  "id" : "5",
+									  "contractName" : "Five"									  
+									}
+								]
+							},
+							{
+								"BuyorSell": "SELL",
+								"DailyVolume": 1000,
+								"DealID": 3333,
+								"InstrumentType": "PHYS",
+								"ExtCounterParty": "DIRECTENERGY-1",
+								"OuttCounterParty": "WFLLC",
+								"StartDate": "8/1/2018",
+								"EndDate": "10/1/2018",
+								"contractList" : [
+									{ 
+									  "id" : "1",
+									  "contractName" : "First"									  
+									},
+									{ 
+									  "id" : "2",
+									  "contractName" : "Second"									  
+									},
+									{ 
+									  "id" : "3",
+									  "contractName" : "Third"									  
+									},
+									{ 
+									  "id" : "4",
+									  "contractName" : "Four"									  
+									},
+									{ 
+									  "id" : "5",
+									  "contractName" : "Five"									  
+									}
+								]
+							},
+
+							{
+								"BuyorSell": "BUY",
+								"DailyVolume": 1000,
+								"DealID": 4444,
+								"InstrumentType": "PHYS",
+								"ExtCounterParty": "DIRECTENERGY-1",
+								"OuttCounterParty": "WFLLC",
+								"StartDate": "8/1/2018",
+								"EndDate": "10/1/2018",
+								"contractList" : [
+									{ 
+									  "id" : "1",
+									  "contractName" : "First"									  
+									},
+									{ 
+									  "id" : "2",
+									  "contractName" : "Second"									  
+									},
+									{ 
+									  "id" : "3",
+									  "contractName" : "Third"									  
+									},
+									{ 
+									  "id" : "4",
+									  "contractName" : "Four"									  
+									},
+									{ 
+									  "id" : "5",
+									  "contractName" : "Five"									  
+									}
+								]
+							}
+						],
+
+						"AggregatedData": [{
+							"ExtCounterParty": "DIRECTENERGY-1",
+							"OuttCounterParty": "WFLLC",
+							"AggregatedVolBuy": 5000,
+							"AggregatedVolSell": 5000,
+							"NGSchedule": [{
+									"BuyorSell": "BUY",
+									"DailyVolume": 2000,
+									"DealID": 8888,
+									"InstrumentType": "PHYS",
+									"ExtCounterParty": "DIRECTENERGY-1",
+									"OuttCounterParty": "WFLLC",
+									"StartDate": "8/1/2018",
+									"EndDate": "10/1/2018"
+								},
+								{
+									"BuyorSell": "Buy",
+									"DailyVolume": 3000,
+									"DealID": 7777,
+									"InstrumentType": "PHYS",
+									"ExtCounterParty": "DIRECTENERGY-1",
+									"OuttCounterParty": "WFLLC",
+									"StartDate": "8/1/2018",
+									"EndDate": "10/1/2018"
+								},
+								{
+									"BuyorSell": "SELL",
+									"DailyVolume": 1000,
+									"DealID": 7788,
+									"InstrumentType": "PHYS",
+									"ExtCounterParty": "DIRECTENERGY-1",
+									"OuttCounterParty": "WFLLC",
+									"StartDate": "8/1/2018",
+									"EndDate": "10/1/2018"
+								},
+								{
+									"BuyorSell": "SELL",
+									"DailyVolume": 4000,
+									"DealID": 7789,
+									"InstrumentType": "PHYS",
+									"ExtCounterParty": "DIRECTENERGY-1",
+									"OuttCounterParty": "WFLLC",
+									"StartDate": "8/1/2018",
+									"EndDate": "10/1/2018"
+								}
+							]
+						}]
+					}]
+}
