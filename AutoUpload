@@ -1,0 +1,54 @@
+import java.util.concurrent.TimeUnit;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.ie.InternetExplorerDriver;
+import org.openqa.selenium.support.ui.Select;
+
+public class DemoClass {
+
+	public static void main(String[] args) {
+		try{
+		
+		String service="C:\\Users\\piyus\\Downloads\\chromedriver_win32\\chromedriver.exe";
+		
+//		String service="C:\\Users\\piyus\\Downloads\\IEDriverServer_Win32_3.14.0\\IEDriverServer.exe";
+//		System.setProperty("webdriver.ie.driver", service);
+		System.setProperty("webdriver.chrome.driver", service);
+		WebDriver driver = new ChromeDriver();
+//		WebDriver driver= new InternetExplorerDriver();
+	
+//		driver.get("https://timesheet.synechron.com/");
+//		driver.findElement(By.id("userName")).sendKeys("piyush.joshi");
+//		driver.findElement(By.id("password")).sendKeys("Smile^1234");
+		
+		
+		driver.get("https://scgenvoy.sempra.com/WebDispatch/ShowLogin.showLogin");
+		driver.manage().timeouts().implicitlyWait(15, TimeUnit.SECONDS);
+//		driver.findElement(By.xpath("//input[@name='userid']")).sendKeys("piyush.joshi");
+//		driver.findElement(By.name("password")).sendKeys("Smile^1234");
+//		driver.findElement(By.xpath("//button[@name='Submit']")).click();
+		
+		driver.findElement(By.name("userid")).sendKeys("gsychen");
+		driver.findElement(By.name("password")).sendKeys("Iphone18");
+		driver.findElement(By.name("Submit")).click();
+		driver.manage().timeouts().implicitlyWait(15, TimeUnit.SECONDS);
+		driver.findElement(By.linkText("Transaction Ledger")).click();
+		driver.findElement(By.id("menu-context-ViewTransaction.getSaveAs")).click();
+		Select select = new Select(driver.findElement(By.name("Class")));
+		select.selectByVisibleText("CSV");
+//		driver.findElement(By.linkText("Export"));
+//		driver.findElement(By.xpath("//button[@id='module-page-router/div[2]/content-loader/form/div[2]/button[2]']")).click();
+//		driver.findElement(By.className("button style-scope module-page")).click();
+		driver.findElement(By.xpath("//*[contains(text(), 'Export')]"));
+
+		
+		}
+		catch(Exception e){
+			System.out.println(e.getMessage());
+		}
+		
+	}
+
+}
